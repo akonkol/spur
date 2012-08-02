@@ -25,15 +25,10 @@ sudo apt-get install sqlite
 
 Python Requirements
 ------------------------
-django-mptt - 
+django-mptt - sudo easy_install django-mptt
 
-sudo easy_install django-mptt
----
+pexpect - sudo easy_install pexpect 
 
-pexpect - 
-
-sudo easy_install pexpect 
----
 
 Spur Instalattion
 ----------------
