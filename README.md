@@ -4,15 +4,16 @@ Spur is a web based network configuration manager. It allows you to ssh or telne
 
 ##System Requirements
 
-Python simply type "which python" in a command prompt to see if python is installed
+*Python* simply type "which python" in a command prompt to see if python is installed
 
-Django 1.4
+*Django 1.4*
 
 wget http://www.djangoproject.com/m/releases/1.4/Django-1.4.1.tar.gz
 tar xzvf Django-1.4.1.tar.gz
 cd Django-1.4.1
 sudo python setup.py install
-sqlite, mysql, postgres I suggest running sqlite if you don't want to setup a daemon style db
+
+*sqlite, mysql, postgres* I suggest running sqlite if you don't want to setup a daemon style db
 
 sudo apt-get install sqlite
 
