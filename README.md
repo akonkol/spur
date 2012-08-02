@@ -2,7 +2,7 @@
 
 Spur is a web based network configuration manager. It allows you to ssh or telnet to any device and run commands through a web front-end. The results of these commands are stored and can be diff'd. Emails can be sent when there is a diff if you want.
 
-##System Requirements
+##System Requirements##
 
 Python  - simply type "which python" in a command prompt to see if python is installed
 ---
