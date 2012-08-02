@@ -1,17 +1,20 @@
-#Spur Setup
+# Spur Setup #
 
 Spur is a web based network configuration manager. It allows you to ssh or telnet to any device and run commands through a web front-end. The results of these commands are stored and can be diff'd. Emails can be sent when there is a diff if you want.
 
-##System Requirements##
+## System Requirements ##
 
-Python  - simply type "which python" in a command prompt to see if python is installed
+### Python ### - simply type "which python" in a command prompt to see if python is installed
 ---
 
-Django 1.4 - 
+### Django 1.4 ###- 
 
 wget http://www.djangoproject.com/m/releases/1.4/Django-1.4.1.tar.gz
+
 tar xzvf Django-1.4.1.tar.gz
+
 cd Django-1.4.1
+
 sudo python setup.py install
 
 ---
