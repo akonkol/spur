@@ -23,8 +23,8 @@ sqlite, mysql, postgres -  I suggest running sqlite if you don't want to setup a
 sudo apt-get install sqlite
 
 
-##Python Requirements
-
+Python Requirements
+------------------------
 django-mptt - 
 
 sudo easy_install django-mptt
@@ -35,7 +35,8 @@ pexpect -
 sudo easy_install pexpect 
 ---
 
-##Spur Instalattion
+Spur Instalattion
+----------------
 
 Once you've met the system and python requirements, grab a copy of spur
 
