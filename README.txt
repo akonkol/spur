@@ -26,6 +26,7 @@ sudo apt-get install sqlite
 Python Requirements
 django-mptt - sudo easy_install django-mptt
 pexpect - sudo easy_install pexpect 
+croniter - sudo easy_install croniter
 
 
 Spur Instalattion
