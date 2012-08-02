@@ -1,0 +1,38 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static admin_modify %}
+{% load url from future %}
+{% load admin_urls %}
+{% block extrahead %}
+{{ media.js }}
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+   <link rel="stylesheet" type="text/css" href="{% static "admin/css/spur.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+{% if original.id %}
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_label|capfirst|escape }}</a>
+&rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+
+&rsaquo; <a href="{% url opts|admin_urlname:'change' original.id %}">{{original|truncatewords:"18"  }}</a>
+{% endif %}
+&rsaquo; Full Diff
+</div>
+{% endblock %}
+{% endif %}
+
+
+{% block content_title %}
+   <h1>Full Diff {{opts.object_name}}</h1>
+{% endblock %}
+
+{% block content %}
+{% autoescape off %}
+{{diff}}
+{% endautoescape %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'spur admin' %}{% endblock %}
+
+{% block extrastyle %}
+   <link rel="stylesheet" type="text/css" href="/static/admin/css/spur.css">
+{% endblock %}
+
+{% block branding %}
+
+<h1 class="logo"><a href="/admin/">*spur</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+{% endblock %}

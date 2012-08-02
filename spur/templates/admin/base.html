@@ -1,0 +1,86 @@
+{% load admin_static %}{% load url from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %}</title>
+
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/spuradmin.css" %}{% endblock %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+<!-- Container -->
+<div id="page">
+
+    {% if not is_popup %}
+    <!-- Header -->
+    <div id="header" class="rounded-corners">
+         <h1 class="logo"><a href="/admin/">Spur</a></h1>
+	 <ul id="navlist">	
+		<li><a class="right-vrule" href="/admin/ncm/change">Changes</a></li>
+		<li><a class="right-vrule" href="/admin/ncm/output">Outputs</a></li>
+		<li><a class="right-vrule" href="/admin/ncm/job">Jobs</a></li>
+
+		<li><a class="right-vrule" href="/admin/ncm/command">Commands</a></li>
+		<li><a class="right-vrule" href="/admin/ncm/node">Nodes</a></li>
+		<li><a class="right-vrule" href="/admin/ncm/nodegroup">Node Groups</a></li>
+		<li><a class="" href="/admin/ncm/credential">Credentials</a></li>
+
+	 </ul>
+
+        {% if user.is_active and user.is_staff %}
+	<div id="login">
+            {% trans 'Welcome,' %}
+            <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
+            {% block userlinks %}
+                {% url 'django-admindocs-docroot' as docsroot %}
+                {% if docsroot %}
+                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                {% endif %}
+                <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+            {% endblock %}
+	</div>
+        {% endif %}
+        {% block nav-global %}{% endblock %}
+    </div>
+    <!-- END Header -->
+    {% endif %}
+
+    {% block messages %}
+        {% if messages %}
+        <ul class="messagelist">{% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}</ul>
+        {% endif %}
+    {% endblock messages %}
+
+    <!-- Content -->
+    {% comment %}<h2 class="module_title">{% block content_title %}{{ title }}{% endblock %}</h2>{% endcomment %}
+    <div id="content">
+        {% block content %}
+	<div id="module_title">
+           <h2>{% block content_title %}{{ title }}in base{% endblock %}</h2>
+	</div>
+        <div id="module">
+        {% block object-tools %}{% endblock %}
+        {{ content }}
+        </div><!-- end module -->
+        {% endblock %}
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    {% block footer %}<div id="footer"></div>{% endblock %}
+    </div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

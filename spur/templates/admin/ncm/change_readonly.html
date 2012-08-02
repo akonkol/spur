@@ -1,0 +1,84 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static admin_modify %}
+{% load url from future %}
+{% load admin_urls %}
+{% block extrahead %}
+{{ media.js }}
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function($) {
+	$('#from_output').hide();
+	$('#to_output').hide();
+	$('input[type="submit"]').hide();
+
+	$(".hide").click(function(event){
+	   event.preventDefault();
+	   $(this).closest('div').next().toggle();
+
+	   if( $(this).text() == "Show"){
+		$(this).text('Hide');
+	   }
+	   else( $(this).text('Show'))
+	});
+
+    });
+})(django.jQuery);
+</script>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "syntax-highlighter/shCore.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "syntax-highlighter/shThemeDefault.css" %}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="module_title">
+<h2>View Change</h2>
+</div>
+<div id="module">
+ <ul class="object-tools">
+    <li><a class="rounded-corners" id="full_diff" href="/admin/ncm/change/{{object_id}}/full_diff/" class="addlink" >Full Diff</a></li>
+ </ul>
+
+
+ {% block field_sets %}
+      {% for fieldset in adminform %}
+         {% for line in fieldset %}
+            {% for field in line %}
+	     <div class="form-row">
+               <b class="label">{{field.field.label|title}}:</b>
+	        {% if field.field.name == "diff" or field.field.name == "from_output" or field.field.name == "to_output" %}
+	  	      {% if field.field.name == "diff" %}
+	              {% else %}
+		         <div class="value"><a href="#" class="hide">Show</a></div>
+		      {% endif %}
+
+		      <div id="{{field.field.name}}" class="full_text">
+		      </br>
+	              <pre class="brush: diff">{{field.contents}}</pre>
+		   </div>
+	        {% else %}
+		   {% if field.field.name == "job"%}
+		      <a href="{% url 'admin:index' %}ncm/job/{{original.job.id}}">{{field.contents|title}}</a>
+		   {% endif %}
+		   {% if field.field.name == "node"%}
+		      <a href="{% url 'admin:index' %}ncm/node/{{original.node.id}}">{{field.contents|title}}</a>
+	 	   {% endif %}
+		   {% if field.field.name != "job"  and field.field.name != "node"%}
+		      <div class="value">{{field.contents}}</div>
+		   {% endif %}
+		{% endif %}
+	     </div><! -- end form row -->
+
+	    {% endfor %}
+         {% endfor %}
+      {% endfor %}
+ {% endblock %}
+
+{% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+</div><!-- end module -->
+
+{% endblock %}<!-- end content -->

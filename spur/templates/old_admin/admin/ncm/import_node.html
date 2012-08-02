@@ -1,0 +1,31 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n adminmedia %}
+
+{% block breadcrumbs %}
+  {{block.super}}
+{% endblock %}
+
+{% comment %}
+<div class="breadcrumbs">
+{% trans "Home" %} > Tratto > Nodes > Import (CSV)</div>{% endblock %}
+{% endcomment %}
+
+{% block content %}
+<h2>Import Nodes (CSV)</h2>
+{% if success %}
+   <p>You successfully imported nodes</p>
+
+{% else %}
+<p>
+   There should be 3 columns in your csv: name,ip,os,ssh or telnet
+        <br/>
+   i.e. "Chicago Core",10.1.1.1,IOS,telnet
+</p>
+<form enctype="multipart/form-data" method="post" >
+{% csrf_token%}
+{{form}}
+<input type="submit" />
+</form>
+{% endif%}
+{% endblock %}
+

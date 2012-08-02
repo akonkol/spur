@@ -1,0 +1,31 @@
+<table class="make_table">
+<caption>{{caption|title}}</caption>
+<thead>
+<tr>
+{% for th in th_fields %}
+	<th>{{th|title}}</th>
+{% endfor %}
+</tr>
+</thead>
+<tbody>
+{% for tr  in tr_rows %}
+	<tr>
+	{% for field in tr %}
+	   <td>
+	   {% if field.key %}
+		<a href="{{field.url}}">
+	   {% endif %}
+	      {% if field.type == "date" %}
+	   	{{field.value|date:"F d, Y f a"}}
+	      {% else %}	
+	   	{{field.value|truncatechars:30}}
+	      {% endif %}
+	   {% if field.key %}
+	      </a>
+	   {% endif %}
+	   </td>
+	{% endfor %}
+	</tr>
+{% endfor %}
+</tbody>
+</table>

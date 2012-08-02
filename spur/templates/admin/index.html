@@ -1,0 +1,45 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block content %}
+
+
+      {% load spur_admin_tags %}
+
+      <div id="module_title">
+      <h2>Recent Changes</h2>
+      </div>
+      <div id="module">
+         {% recent_objects "change"  5 "-created"  as changes%}
+         {% make_table changes "Recent Changes" "created,job,node,from_datetime,to_datetime" %}
+      </div>
+
+      {% recent_objects "output"  5 "-updated_on"  as outputs%}
+      <div id="module_title">
+      <h2>Recent Outputs</h2>
+      </div>
+      <div id="module">
+         {% make_table outputs "Recent Outputs" "updated_on,job,node,performed_command,successful,result" %}
+      </div>
+
+
+      {% get_recent_errors as errors %}
+      <div id="module_title">
+      <h2>Recent Errors</h2>
+      </div>
+      <div id="module">
+         {% make_table errors "Recent Errors" "created_on,job,node,performed_command,successful,result" %}
+      </div>
+
+
+
+
+   </div>
+{% endblock %}
+

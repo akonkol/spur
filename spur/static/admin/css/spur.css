@@ -1,0 +1,193 @@
+
+#header {
+	background-color:#001917 !important;
+	height:60px;
+	border-bottom:2px solid #BEC0C0;
+}
+
+.module h2, .module caption, .inline-group h2 {
+	background:#ffffff ; 
+	padding-top:10px !important;
+	padding-bottom:10px !important;
+	color:inherit;
+}
+
+h2.title {
+	font-size:1.4em;
+}
+
+
+.selector-available h2, .selector-chosen h2 {
+	font-size:1.0em !important;
+}
+
+.module {
+	border:none !important;
+}
+
+.module caption {
+	border-bottom:1px solid black;
+	padding-bottom:2px !important;
+}
+a.section:link, a.section:visited { color: #1e1e1e; font-weight:bold; font-size:1.1em;  }
+
+a:link, a:visited { color:#266356; font-weight:normal;}
+a:hover { text-decoration:underline;}
+
+.logo {
+	padding-top:8px !important;
+	font-size:1.9em !important;
+	color:#ffc !important;
+}
+
+
+#content-related .module h2 {
+	background:inherit !important;
+}
+
+div.breadcrumbs {
+	background:#bec0c0 !important;
+	border-top:none !important;
+	color:#1e1e1e !important;
+}
+
+.row1 {
+	background-color:#E5E6E6 !important;
+}
+
+#changelist, #toolbar{
+	border:none !important;
+	background:none !important;
+}
+
+#changelist .actions , #changelist .paginator, #changelist label{
+	border:none !important;
+	background:none !important;
+	color:#1e1e1e !important;
+}
+
+
+button.default, input[type="submit"].default, .submit-row input.default {
+	background:#266356 !important;
+	border:2px solid #2f7566;
+}
+
+thead th, tfoot td {
+	font-weight: bold !important;
+	font-size:1.0em;
+	color: #1e1e1e;
+}
+thead tr {
+	border-bottom:1px solid black !important;
+}
+
+thead th a:link, thead th a:visited {
+	font-weight:bold;
+	color: #1e1e1e;
+	font-size:1.0em !important;
+}
+
+#changelist table  {
+	border:1px solid #ddd;
+}
+	
+
+.form-row {
+	font-size:1.1em !important;
+}
+
+ .object-tools li, .object-tools a:link, .object-tools a:visited {
+	background:none !important;
+}
+
+.object-tools a, .object-tools li {
+border: medium none;
+border-radius: 20px 20px 20px 20px;
+font-size: 11px;
+font-weight: bold;
+max-width: 400px;
+padding: 2px 1px;
+text-transform: uppercase;
+text-decoration: none;
+float: left;
+background-color: #266356 !important;
+color: white!important;
+float: right;
+margin-right: 0px;
+margin-left: 18px;
+display: block;
+}
+
+
+#changelist-filter h3, #changelist-filter, #changelist-filter h2{
+	background-color:#266356 !important;
+	color:#ffffff !important;
+	padding:10px;
+}
+
+fieldset.module h2 {
+	color:white;
+	font-size:1.1em;
+	background-color:#1e1e1e;
+	padding-left:15px;
+	margin-top:20px;
+}
+
+.selector h2 {
+	color:black !important;
+	background-color:inherit !important;
+}
+
+.error {
+	background-color:red;
+}
+
+table.make_table {
+	width:850px !important;
+}
+
+.diff tr, .diff td{
+	border:1px solid #ddd !important;
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+	font-size:14px;
+}
+
+.diff table{
+font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+font-size:13px;
+}
+
+.diff_add {
+	color:green;
+}
+
+.diff_sub {
+	color:red;
+}
+
+.diff_header {
+	background-color:#ddd;
+}
+
+#changelist-filter ul {
+	background-color:white !important;
+}
+
+
+#changelist-filter a {
+color: #266356 !important ;
+}
+
+#changelist-filter li.selected a {
+color: #266356 !important;
+font-weight:bold;
+}
+
+#changelist-filter li {
+	padding:5px;
+}
+
+#spur-dashboard {
+	clear:both;
+	padding-top:20px !important;
+}

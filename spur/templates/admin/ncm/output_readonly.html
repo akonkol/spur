@@ -1,0 +1,73 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static admin_modify %}
+{% load url from future %}
+{% load admin_urls %}
+{% block extrahead %}
+{{ media.js }}
+
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function($) {
+	$('input[type="submit"]').hide();
+
+    });
+})(django.jQuery);
+</script>
+
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "syntax-highlighter/shCore.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "syntax-highlighter/shThemeDefault.css" %}" />
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="module_title">
+<h2>View Output</h2>
+</div>
+<div id="module">
+ <ul class="object-tools">
+ </ul>
+
+<div id="content-main">
+<div class="module">
+
+ {% block field_sets %}
+      {% for fieldset in adminform %}
+         {% for line in fieldset %}
+            {% for field in line %}
+	     <div class="form-row">
+               <b class="label">{{field.field.label|title}}:</b>
+	        {% if field.field.name == "result"  %}
+		      </br>
+			{% if original.command.os == "IOS" %}
+	                   <pre class="brush: cisco">{{field.contents}}</pre>
+		  	{% else %}
+	                   <pre class="brush: cisco">{{field.contents}}</pre>
+			{% endif %}	
+		   </div>
+	        {% else %}
+		   {% if field.field.name == "job"%}
+		      <a href="{% url 'admin:index' %}ncm/job/{{original.job.id}}">{{field.contents|title}}</a>
+		   {% endif %}
+		   {% if field.field.name == "node"%}
+		      <a href="{% url 'admin:index' %}ncm/node/{{original.node.id}}">{{field.contents|title}}</a>
+	 	   {% endif %}
+		   {% if field.field.name != "job"  and field.field.name != "node"%}
+		      <div class="value">{{field.contents}}</div>
+		   {% endif %}
+		{% endif %}
+	     </div><! -- end form row -->
+
+	    {% endfor %}
+         {% endfor %}
+      {% endfor %}
+ {% endblock %}
+</div>
+{% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+</div>
+
+{% endblock %}

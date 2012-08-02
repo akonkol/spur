@@ -1,0 +1,163 @@
+<html>
+<head>
+<style>
+* { margin:0; padding:0;}
+
+body {
+   background-color:#E8E8E8;
+   color:#615755;
+   text-align:center;
+   font-family:"Titillium800", "Trebuchet MS", Arial, sans-serif;
+}
+
+#page {
+   padding-top:32px;
+   text-align:left;
+   background-color:#e8e8e8;
+   min-width:900px;
+   margin:auto;
+   width:70%;
+}
+
+#header {
+   background-image: url('spur-gradient.png');
+   background-repeat:repeat-x;
+   background-color:#222;
+   padding:16px;
+   margin-bottom:24px;
+   color:#99968d;
+   min-height:24px;
+}
+
+#header a:link, #header a:visited {
+   color:inherit;
+   text-decoration:none;
+}
+
+.logo {
+   text-transform:uppercase;
+   font-size:1.1em;
+   color:#ffffff;
+   margin-right:80px;
+   display:inline;
+   float:left;
+   display:block;
+}
+
+#module {
+   background-color:#ffffff;
+   border:1px solid #cbcbcb;
+   padding:16px;
+}
+
+.module_title {
+   padding:16px;
+   color:#555555;
+   text-transform:uppercase;
+   border-top:1px solid #cbcbcb;
+   border-left:1px solid #cbcbcb;
+   border-right:1px solid #cbcbcb;
+   background-color:#f5f5f5;
+   font-weight:bold;
+   font-size:1.0em;
+  -moz-border-radius: 5px 5px 0px 0px; /* Firefox */
+  -webkit-border-radius: 5px 5px 0px 0px; /* Safari, Chrome */
+  border-radius: 5px 5px 0px 0px; /* CSS3 */
+}
+
+.rounded-corners {
+  -moz-border-radius: 5px; /* Firefox */
+  -webkit-border-radius: 5px; /* Safari, Chrome */
+  border-radius: 5px; /* CSS3 */
+}
+
+#navlist {
+   display:inline;
+   text-align:center;
+   line-height:24px;
+}
+
+#navlist li {
+   display:inline;
+   list-style-type:none;
+   font-weight:bold;
+   font-size:0.9em;
+}
+
+#navlist a {
+   float:left;
+   display:block;
+   padding:0 10px;
+}
+
+#header a:hover {
+   color:#fff;
+}
+
+
+#login {
+   float:right;
+   font-size:0.8em;
+   line-height:24px;
+}
+
+a:link, a:visited {
+   text-decoration:none;
+   color:#008EE8;
+}
+
+table {
+   width:100%;
+   text-align:left;
+   margin-top:8px;
+   border-collapse: separate;
+}
+
+table tr, table td, table th{
+   padding:8 0 8 0;
+   border-bottom: 1px solid #DDD;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="page">
+   <div id="header" class="rounded-corners">
+	<h1 class="logo"><a href="/">spur</a></h1>
+	<ul id="navlist">
+	   <li><a href="#">Dashboard</a></li>
+	   <li><a href="#">Changes</a></li>
+	   <li><a href="#">Outputs</a></li>
+	   <li><a href="#">Nodes</a></li>
+	   <li><a href="#">Credentials</a></li>
+	</ul>
+	<div id="login">
+	   {{user}} | <a href="#">change password</a>, <a href="#">logout</a>
+	</div>
+   </div>
+
+   <h2 class="module_title">Dashboard</h2>
+   <div id="module">
+	Now is the time for all good men to come to the aide of their <a href="#">country.</a>	
+	<table>
+	   <thead>
+	      <th>crapface</th><th>shitface</th>
+ 	   </thead>
+	   <tbody>
+	      <tr>
+	         <td>word</td><td>to big bird</td>
+	      </tr>
+	      <tr>
+	         <td>word</td><td>to big bird</td>
+	      </tr>
+	
+	
+	   </tbody>
+ 	</table>
+   </div>
+</div>
+
+</body>
+</html>
