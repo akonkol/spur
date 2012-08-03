@@ -11,8 +11,14 @@
 
 
       {% load spur_admin_tags %}
-      {% recent_objects "node"  5 ""  as nodes%}
+
+      {% recent_objects "node"  5 "-id"  as nodes%}
       {% if nodes %}
+         {% recent_objects "job" 5 "-id" as jobs %}
+	 {% if jobs %}
+	 {% else %}
+	    You need to add some jobs! Click <a href="/admin/ncm/job/add">here</a> to create some.
+	 {% endif %}
       {% else %}
 	You need to add some nodes! Click <a href="/admin/ncm/node/add">here</a> to add some.
       {% endif %}
