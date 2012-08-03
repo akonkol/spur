@@ -27,6 +27,7 @@ Python Requirements
 django-mptt - sudo easy_install django-mptt
 pexpect - sudo easy_install pexpect 
 croniter - sudo easy_install croniter
+pytz - sudo easy_install pytz
 
 
 Spur Instalattion
@@ -34,9 +35,7 @@ Spur Instalattion
 
 Once you've met the system and python requirements, grab a copy of spur
 
-wget use.io/spur/spur.tar.gz
-
-tar xvzf spur.tar.gz
+git clone https://github.com/akonkol/spur.git
 
 cd spur
 
