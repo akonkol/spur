@@ -131,19 +131,3 @@ LOGGING = {
     }
 }
 
-FIXTURE_PATH = os.path.split(SITE_ROOT_DIR)[0]+'/ncm/fixtures/intial_data.json'
-try:
-   with open(str(FIXTURE_PATH)) as f: pass
-except IOError as e:
-   print str(e)
-   site_fixture_dict = {}
-   site_fixture_dict['pk']=1
-   site_fixture_dict['model']="sites.site"
-   site_fixture_dict['fields']={'name':FQDN,'domain':FQDN}
-   site_fixture_list = [site_fixture_dict]
-   import json
-   json = json.dumps(site_fixture_list)
-   f = open(FIXTURE_PATH,'w')
-   f.write(json)
-   f.close()
-
