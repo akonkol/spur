@@ -11,6 +11,11 @@
 
 
       {% load spur_admin_tags %}
+      {% recent_objects "node"  5 ""  as nodes%}
+      {% if nodes %}
+      {% else %}
+	You need to add some nodes! Click <a href="/admin/ncm/node/add">here</a> to add some.
+      {% endif %}
 
       <div id="module_title">
       <h2>Recent Changes</h2>
