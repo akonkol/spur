@@ -24,6 +24,8 @@ sudo apt-get install sqlite
 
 
 Python Requirements
+
+croniter - sudo easy_install croniter 
 django-mptt - sudo easy_install django-mptt
 pytz - sudo easy_install pytz
 
