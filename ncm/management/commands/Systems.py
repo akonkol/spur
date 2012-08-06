@@ -53,12 +53,12 @@ class ArubaOS(OperatingSystem):
 	GET_CONFIG	="show run"
 
 OperatingSystems = {
+	'AOS': ArubaOS,
 	'IOS': CiscoIOS,
-	'WebNS': CiscoWebNS,
+	'OBSD': OpenBSD,
 	'OSX': AppleOSX,
 	'SOS': SecureComputingSidewinder,
-	'AOS': ArubaOS,
-	'OBSD': OpenBSD,
+	'WebNS': CiscoWebNS,
 	}
 
 
