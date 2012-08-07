@@ -22,8 +22,8 @@ transports = (
 )
 
 
-os_list = ((k,k) for k,k in Systems.OperatingSystems.iterkeys())
-os_list2 = ((k,k) for k,k in Systems.OperatingSystems.iterkeys())
+os_list = ((k,k) for k in Systems.OperatingSystems.iterkeys())
+os_list2 = ((k,k) for k in Systems.OperatingSystems.iterkeys())
 
 class Node(models.Model):
         name = models.CharField(max_length=100)
